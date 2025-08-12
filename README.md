@@ -64,68 +64,17 @@ Uma API simples para gerenciar informações de carros, desenvolvida em **Flask*
   ```
 ## 🔌 Endpoints da API
 
-### **Listar todos os carros**
-`GET /carros`
-
-**Descrição:**  
-Retorna todos os carros cadastrados no banco de dados.
-
-**Exemplo de resposta (200 OK):**
-```json
-[
-    {
-        "id": 1,
-        "marca": "Fiat",
-        "modelo": "Marea",
-        "ano": 1999
-    },
-    {
-        "id": 2,
-        "marca": "Volkswagen",
-        "modelo": "Gol",
-        "ano": 2020
-    }
-]
-```
-### **Cadastrar novo carro**
-`POST /carros`
-**Parâmetros (Body - JSON):**
-```json
-{
-    "marca": "string (obrigatório)",
-    "modelo": "string (obrigatório)",
-    "ano": "integer (opcional)"
-}
-```
-**Exemplo de requisição:**
-```json
-{
-    "marca": "Toyota",
-    "modelo": "Corolla",
-    "ano": 2022
-}
-```
-**Respostas possíveis:**
-`201 Created` (Sucesso)
-```json
-{
-    "id": 3,
-    "marca": "Toyota",
-    "modelo": "Corolla",
-    "ano": 2022
-}
-```
-`400 Bad Request` (Se faltar campo obrigatório)
-```json
-{
-    "erro": "Os campos 'marca' e 'modelo' são obrigatórios"
-}
-```
 **Formato Resumido**
-| Método | Endpoint   | Descrição               | Body (Exemplo)                          |
-|--------|-----------|-------------------------|-----------------------------------------|
-| GET    | `/carros` | Lista todos os carros    | -                                       |
-| POST   | `/carros` | Cadastra novo carro      | `{"marca": "Fiat", "modelo": "Marea"}` |
+| Método  | Endpoint          | Descrição                     | Body (Exemplo)                          |
+|---------|-------------------|-------------------------------|-----------------------------------------|
+| GET     | `/carros`         | Lista todos os carros         | -                                       |
+| GET     | `/carros/<id>`    | Busca carro por ID            | -                                       |
+| POST    | `/carros`         | Cadastra novo carro           | `{"marca": "Fiat", "modelo": "Marea"}` |
+| PUT     | `/carros/<id>`    | Atualiza **todos** campos     | `{"marca": "Fiat", "modelo": "Toro"}`   |
+| PATCH   | `/carros/<id>`    | Atualiza campos **parciais**  | `{"ano": 2023}`                         |
+| DELETE  | `/carros/<id>`    | Remove carro por ID           | -                                       |
+
+---
 
 ## 📂 Estrutura do Projeto
 ```text
