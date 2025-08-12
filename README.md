@@ -10,8 +10,6 @@ Uma API simples para gerenciar informações de carros, desenvolvida em **Flask*
 - [Como Executar o Projeto](#-como-executar-o-projeto)
 - [Endpoints da API](#-endpoints-da-api)
 - [Estrutura do Projeto](#-estrutura-do-projeto)
-- [Próximos Passos](#-próximos-passos)
-- [Contribuição](#-contribuição)
 
 ---
 
