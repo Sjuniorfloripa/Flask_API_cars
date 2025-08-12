@@ -89,6 +89,5 @@ flask-api-carros/
 ```
 **🔜 Próximos Passos**
 - Adicionar autenticação JWT
-- Implementar DELETE e PUT para editar/excluir carros
 - Migrar para MySQL/PostgreSQL
 - Configurar Docker para deploy
