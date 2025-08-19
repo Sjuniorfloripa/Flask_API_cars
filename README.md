@@ -5,13 +5,17 @@ Uma API simples para gerenciar informações de carros, desenvolvida em **Flask*
 ---
 
 ## 📌 Tabela de Conteúdos
-- [Funcionalidades](#-funcionalidades)
-- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
-- [Como Executar o Projeto](#-como-executar-o-projeto)
-- [Endpoints da API](#-endpoints-da-api)
-- [Estrutura do Projeto](#-estrutura-do-projeto)
-- [Próximos Passos](#-próximos-passos)
-- [Contribuição](#-contribuição)
+- [🚗 API Flask de Carros](#-api-flask-de-carros)
+  - [📌 Tabela de Conteúdos](#-tabela-de-conteúdos)
+  - [🛠 Funcionalidades](#-funcionalidades)
+  - [💻 Tecnologias Utilizadas](#-tecnologias-utilizadas)
+  - [🚀 Como Executar o Projeto](#-como-executar-o-projeto)
+    - [**Pré-requisitos**](#pré-requisitos)
+    - [**Passo a Passo**](#passo-a-passo)
+  - [🔐 Autenticação JWT](#-autenticação-jwt)
+  - [Variáveis de Ambiente:](#variáveis-de-ambiente)
+  - [🔌 Endpoints da API](#-endpoints-da-api)
+  - [📂 Estrutura do Projeto](#-estrutura-do-projeto)
 
 ---
 
@@ -62,70 +66,37 @@ Uma API simples para gerenciar informações de carros, desenvolvida em **Flask*
   ```text
   http://localhost:5000/carros
   ```
+
+## 🔐 Autenticação JWT
+1. **Registrar usuário** → `/register`
+2. **Fazer login** → `/login` (obtém token JWT)
+3. **Usar token em requisições protegidas** → Authorization: Bearer <token>
+
+## Variáveis de Ambiente:
+**Crie um arquivo** `.env` na raiz do projeto:
+```env
+JWT_SECRET_KEY=sua_chave_super_secreta_aqui_32_caracteres
+JWT_ACCESS_TOKEN_EXPIRES=3600
+```
+
 ## 🔌 Endpoints da API
 
-### **Listar todos os carros**
-`GET /carros`
+**🔐 Autenticação**
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| POST | `/register` |	Registrar novo usuário |
+| POST | `/login` |	Fazer login |
+| GET | `/profile` |	Ver perfil do usuário |
 
-**Descrição:**  
-Retorna todos os carros cadastrados no banco de dados.
-
-**Exemplo de resposta (200 OK):**
-```json
-[
-    {
-        "id": 1,
-        "marca": "Fiat",
-        "modelo": "Marea",
-        "ano": 1999
-    },
-    {
-        "id": 2,
-        "marca": "Volkswagen",
-        "modelo": "Gol",
-        "ano": 2020
-    }
-]
-```
-### **Cadastrar novo carro**
-`POST /carros`
-**Parâmetros (Body - JSON):**
-```json
-{
-    "marca": "string (obrigatório)",
-    "modelo": "string (obrigatório)",
-    "ano": "integer (opcional)"
-}
-```
-**Exemplo de requisição:**
-```json
-{
-    "marca": "Toyota",
-    "modelo": "Corolla",
-    "ano": 2022
-}
-```
-**Respostas possíveis:**
-`201 Created` (Sucesso)
-```json
-{
-    "id": 3,
-    "marca": "Toyota",
-    "modelo": "Corolla",
-    "ano": 2022
-}
-```
-`400 Bad Request` (Se faltar campo obrigatório)
-```json
-{
-    "erro": "Os campos 'marca' e 'modelo' são obrigatórios"
-}
-```
-**Formato Resumido**
-| Método | Endpoint   | Descrição               | Body (Exemplo)                          |
-|--------|-----------|-------------------------|-----------------------------------------|
-| GET    | `/carros` | Lista todos os carros    | -                                       |
-| POST   | `/carros` | Cadastra novo carro      | `{"marca": "Fiat", "modelo": "Marea"}` |
+**🚗 Carros (Protegidos por JWT)**
+| Método | Endpoint   | Descrição               | Autenticação |
+|--------|-----------|-------------------------|---------------|
+| GET    | `/carros` | Lista todos os carros | ✅ |
+| POST   | `/carros` | Cadastra novo carro | ✅ |
+| GET   | `/carros/<id>` | Buscar carro por ID | ✅ |
+| PUT   | `/carros/<id>` | Atualizar carro (completo) |  ✅ |
+| PATCH   | `/carros/<id>` | Atualizar carro (parcial) | ✅ |
+| DELETE   | `/carros/<id>` | Deletar carro | ✅ |
 
 ## 📂 Estrutura do Projeto
 ```text
@@ -141,7 +112,6 @@ flask-api-carros/
 └── requirements.txt      # Dependências do projeto
 ```
 **🔜 Próximos Passos**
-- Adicionar autenticação JWT
-- Implementar DELETE e PUT para editar/excluir carros
+
 - Migrar para MySQL/PostgreSQL
 - Configurar Docker para deploy
