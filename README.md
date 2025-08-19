@@ -5,6 +5,7 @@ Uma API simples para gerenciar informações de carros, desenvolvida em **Flask*
 ---
 
 ## 📌 Tabela de Conteúdos
+
 - [🚗 API Flask de Carros](#-api-flask-de-carros)
   - [📌 Tabela de Conteúdos](#-tabela-de-conteúdos)
   - [🛠 Funcionalidades](#-funcionalidades)
@@ -81,6 +82,7 @@ JWT_ACCESS_TOKEN_EXPIRES=3600
 
 ## 🔌 Endpoints da API
 
+<<<<<<< HEAD
 **🔐 Autenticação**
 | Método | Endpoint | Descrição |
 |--------|----------|-----------|
