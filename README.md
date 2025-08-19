@@ -84,11 +84,11 @@ JWT_ACCESS_TOKEN_EXPIRES=3600
 
 <<<<<<< HEAD
 **🔐 Autenticação**
-| Método | Endpoint | Descrição |
-|--------|----------|-----------|
-| POST | `/register` |	Registrar novo usuário |
-| POST | `/login` |	Fazer login |
-| GET | `/profile` |	Ver perfil do usuário |
+| Método | Endpoint | Descrição | Autenticação |
+|--------|----------|-----------|---------------|
+| POST | `/register` |	Registrar novo usuário | ❌ |
+| POST | `/login` |	Fazer login | ❌ |
+| GET | `/profile` |	Ver perfil do usuário | ✅ |
 
 **🚗 Carros (Protegidos por JWT)**
 | Método | Endpoint   | Descrição               | Autenticação |
