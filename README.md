@@ -104,14 +104,16 @@ JWT_ACCESS_TOKEN_EXPIRES=3600
 ```text
 flask-api-carros/
 ├── app/
-│   ├── __init__.py       # Configuração do Flask e banco de dados
-│   ├── models.py         # Modelo `Carro` (SQLAlchemy)
-│   └── routes.py         # Rotas da API
+│   ├── __init__.py          # Configuração do Flask e extensões
+│   ├── models.py            # Modelos: User e Carro
+│   ├── routes.py            # Rotas de carros (protegidas)
+│   └── auth_routes.py       # Rotas de autenticação
 ├── instance/
-│   └── storage.db        # Banco de dados SQLite (gerado automaticamente)
-├── main.py               # Ponto de entrada da aplicação
-├── README.md             # Este arquivo
-└── requirements.txt      # Dependências do projeto
+│   └── storage.db           # Banco de dados SQLite (auto-gerado)
+├── .env                     # Variáveis de ambiente (JWT)
+├── main.py                  # Ponto de entrada da aplicação
+├── requirements.txt         # Dependências do projeto
+└── README.md               # Documentação
 ```
 **🔜 Próximos Passos**
 
